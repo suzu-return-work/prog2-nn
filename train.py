@@ -43,8 +43,11 @@ for image_batch,label_batch in dataloader_test:
     print(label_batch.shape)
     break
 
+device='cuda' if torch.cuda.is_available() else 'cpu'
+
 model=models.MyModel()
 
+model.to(device)
 
 #acc_test=models.test_accuracy(model,dataloader_test)
 #print(f'test accuracy: {acc_test*100:.3f}%')
